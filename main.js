@@ -14,6 +14,11 @@ document.getElementById('lyrics-button').addEventListener('click', function(){
             .then(res => res.json())
             .then(lyrics => {
                 console.log(lyrics);
+                const lyricssubmit = "";
+                lyricssubmit = document.getElementById('lyrics-list').innerText;
+
+                fsdfj 
+                
             })
         }
     })
