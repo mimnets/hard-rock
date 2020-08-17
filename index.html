@@ -47,6 +47,7 @@
                 <h1 class="text-center">Lyrics Search</h1>
                 <div class="search-box my-5">
                     <input id="lyrics-input" oninput="getSuggestion()" type="text" class="form-control" placeholder="Enter your artist song name">
+                    <ul class="results" id="results"></ul>
                     <button class="btn btn-success search-btn">Search</button>
                 </div>
             </div>
@@ -224,13 +225,28 @@
         function getSuggestion(search){
             fetch(`https://api.lyrics.ovh/suggest/${search}`)
             .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                const li = 
-                document.getElementById('lyrics-input').value = data;
+            .then(lyricsData => {
+                // console.log(lyricsData);
+                const test = lyricsData.bata;
+                // const test2 = test;
+                console.log(test);
             })
         }
         // getSuggestion('love');
+
+        var request = new XMLHttpRequest();
+
+request.open('GET', 'https://api.lyrics.ovh/v1/artist/title');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+};
+
+request.send();
     </script>
 </body>
 
