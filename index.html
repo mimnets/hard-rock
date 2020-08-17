@@ -46,14 +46,13 @@
             <div class="search-bar col-md-6 mx-auto">
                 <h1 class="text-center">Lyrics Search</h1>
                 <div class="search-box my-5">
-                    <input id="lyrics-input" oninput="getSuggestion()" type="text" class="form-control" placeholder="Enter your artist song name">
-                    <ul class="results" id="results"></ul>
-                    <button class="btn btn-success search-btn">Search</button>
+                    <input id="lyrics-input"  type="text" class="form-control" placeholder="Enter your artist song name">
+                    <button id="lyrics-button" class="btn btn-success search-btn">Search</button>
                 </div>
             </div>
             <!-- === Simple results === -->
             <div class="d-flex justify-content-center">
-                <div class="">
+                <div id="lyrics-list" class="">
                     <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
                     <p class="author lead"><strong>Purple Noon</strong> Album by <span>Washed Out</span> <button class="btn btn-success">Get Lyrics</button></p>
@@ -221,33 +220,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Custom Script Here -->
-    <script>
-        function getSuggestion(search){
-            fetch(`https://api.lyrics.ovh/suggest/${search}`)
-            .then(res => res.json())
-            .then(lyricsData => {
-                // console.log(lyricsData);
-                const test = lyricsData.bata;
-                // const test2 = test;
-                console.log(test);
-            })
-        }
-        // getSuggestion('love');
-
-        var request = new XMLHttpRequest();
-
-request.open('GET', 'https://api.lyrics.ovh/v1/artist/title');
-
-request.onreadystatechange = function () {
-  if (this.readyState === 4) {
-    console.log('Status:', this.status);
-    console.log('Headers:', this.getAllResponseHeaders());
-    console.log('Body:', this.responseText);
-  }
-};
-
-request.send();
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
