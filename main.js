@@ -6,49 +6,19 @@ document.getElementById('lyrics-button').addEventListener('click', function(){
     .then(lyricsData => {
         for(let i = 0; i < 10; i++){
             const element = lyricsData.data[i];
-            console.log(element);
-            const lyricTitle = element.album.title;
+            // console.log(element);
+            const lyricTitle = element.title;
             const lyricArtist = element.artist.name;
-            console.log(lyricTitle + " - " + lyricArtist);
+
+            const lyricList = document.getElementById('lyrics-list');
+            lyricList.innerHTML = '';
+            lyricList.innerHTML += `<p class="author lead"><strong>${lyricTitle}</strong> - Album by - <span>${lyricArtist}</span> <button class="btn btn-success">Get Lyrics</button></p>`;
+            
             fetch(`https://api.lyrics.ovh/v1/${lyricArtist}/${lyricTitle}`)
             .then(res => res.json())
-            .then(lyrics => {
-                console.log(lyrics);
-                const lyricssubmit = "";
-                lyricssubmit = document.getElementById('lyrics-list').innerText;
-
-                fsdfj 
-                
+            .then(lyrics => {                
+                return lyrics;         
             })
         }
     })
 })
-
-// const lyricArtist = lyricItem.data;
-// console.log(lyricArtist);
-
-//     function getSuggestion(search){
-//         fetch(`https://api.lyrics.ovh/suggest/${search}`)
-//         .then(res => res.json())
-//         .then(lyricsData => {
-//         // console.log(lyricsData);
-//         const test = lyricsData.bata;
-//         // const test2 = test;
-//         console.log(test);
-//         })
-//     }
-//         // getSuggestion('love');
-
-//         var request = new XMLHttpRequest();
-
-// request.open('GET', 'https://api.lyrics.ovh/v1/artist/title');
-
-// request.onreadystatechange = function () {
-//   if (this.readyState === 4) {
-//     console.log('Status:', this.status);
-//     console.log('Headers:', this.getAllResponseHeaders());
-//     console.log('Body:', this.responseText);
-//   }
-// };
-
-// request.send();
