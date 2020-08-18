@@ -26,7 +26,6 @@ function lyricsLink(artist,title){
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
         .then(res => res.json())
         .then(lyrics => {                
-        console.log(lyrics);
         document.getElementById('lyrics-list').style.display = "none";
         const lyricsView = document.getElementById('lyrics-view');
             lyricsView.innerHTML += 
